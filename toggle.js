@@ -11,11 +11,10 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   toggle.addEventListener("change", function () {
+    document.body.classList.toggle('dark-mode', toggle.checked);
     if (toggle.checked) {
-      document.documentElement.classList.add("dark-mode");
       localStorage.setItem("darkMode", "enabled");
     } else {
-      document.documentElement.classList.remove("dark-mode");
       localStorage.setItem("darkMode", "disabled");
     }
   });

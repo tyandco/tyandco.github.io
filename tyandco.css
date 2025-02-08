@@ -21,6 +21,8 @@
   --nav-txt-unhover: #404040;
   --container-text: #000;
   --secondary-txt: #575757;
+  --button-bg: #9a9a9a6a;
+  --button-hover: #79787881;
 }
 /* var(--text-color) */
 /* Body & Background transitions */
@@ -163,6 +165,7 @@ nav ul li a:hover {
   --container-text: #fff;
   --nav-txt-unhover: #d3d3d3;
   --secondary-txt: #dcdcdc97;
+  --button-bg: #e2e2e24d;
 }
 
 .dark-mode html,
@@ -365,17 +368,18 @@ h4 {
     padding: 15pt 30pt;
     margin-top: 20px;
     font-size: 20px;
-    color: #ac9a66;
-    background-color: #c2b2801f;
+    color: var(--secondary-txt);
+    background-color: var(--button-bg);
     text-decoration: none;
     border-radius: 25pt;
     transition: background-color 0.3s ease;
     font-family: 'TyAndCosFont', 'Arial', sans-serif;
     font-weight: 700;
+    vertical-align: middle;
 }
 
 .button:hover {
-    background-color: #7d6d3e2f;
+    background-color: var(--button-hover);
 }
 
 .content-wrapper {
@@ -481,5 +485,24 @@ h4 {
 /* By default, show the light icon */
 .icon-placeholder .light-icon {
   opacity: 1;
+}
+
+.social-icon.dark-icon {
+    display: none;
+}
+
+body.dark-mode .social-icon.dark-icon {
+    display: inline-block;
+}
+
+body.dark-mode .social-icon.light-icon {
+    display: none;
+}
+
+.social-icon {
+    width: 35px;
+    height: 35px;
+    margin-right: 8px;
+    vertical-align: middle;
 }
 
