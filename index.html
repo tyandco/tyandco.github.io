@@ -10,34 +10,61 @@
 </head>
 <body>
     <div class="background-image"></div>
+    
+    <!-- Navigation -->
     <nav>
-        <ul>
-            <li><a href="index.html">
+        <!-- Left: Logo -->
+        <div class="nav-left">
+            <a href="index.html" class="logo">
                 <img src="images/scrib.png" alt="TY and Co's Logo" class="top-bar light-icon" />
                 <img src="images/scribdark.png" alt="TY and Co's Logo" class="top-bar dark-icon" />
-                TY and Co.
-              </a></li>
+                <span class="logo-text">TY and Co.</span>
+            </a>
+        </div>
+
+        <!-- Desktop Navigation (visible on desktop only) -->
+        <div class="desktop-nav-container">
+            <ul class="desktop-nav">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="socials.html">Socials</a></li>
+                <li><a href="music.html">Music</a></li>
+            </ul>
+        </div>
+
+        <!-- Right: Toggle & Hamburger -->
+        <div class="nav-right">
+            <!-- Dark/Light Toggle -->
+            <input type="checkbox" id="theme-toggle" hidden />
+            <label for="theme-toggle" class="theme-toggle">
+                <img src="images/sun.png" class="icon sun" alt="Light mode" />
+                <img src="images/moon.png" class="icon moon" alt="Dark mode" />
+            </label>
+            <!-- Hamburger Button (mobile only) -->
+            <button id="nav-toggle" class="hamburger">☰</button>
+        </div>
+    </nav>
+    
+    <!-- Mobile Slide-down Navigation (visible on mobile only) -->
+    <div id="slide-nav" class="slide-nav">
+        <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="socials.html">Socials</a></li>
             <li><a href="music.html">Music</a></li>
-            <!-- Dark Mode Toggle in Nav -->
-            <li class="toggle-container">
-                <input type="checkbox" id="theme-toggle" hidden />
-                <label for="theme-toggle" class="theme-toggle">
-                  <img src="images/sun.png" class="icon sun" alt="Light mode" />
-                  <img src="images/moon.png" class="icon moon" alt="Dark mode" />
-                </label>
-              </li>
         </ul>
-    </nav>
+    </div>
+    
+    <!-- Main Content -->
     <main class="main-content">
         <div class="container">
             <div class="icon-placeholder">
-              <img src="images/hideoutlogo.png" alt="iEmirati Icon" class="placeholder-icon light-icon" />
+                <img src="images/hideoutlogo.png" alt="Hideout Icon" class="placeholder-icon light-icon" />
             </div>
             <h3>TY and Co's Hideout</h3>
+            <p>Welcome to the home page.</p>
         </div>
     </main>
+    
+    <script src="nav-toggle.js"></script>
     <script src="toggle.js"></script>
 </body>
 </html>
