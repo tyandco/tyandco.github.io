@@ -1,0 +1,500 @@
+/* Replace old font declarations with a single declaration for TyAndCosFont */
+@font-face {
+    font-family: 'TyAndCosFont';
+    src: url('fonts/TyAndCosFont-Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Basic Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Light Mode Variables (Default) */
+:root {
+  --body-bg: #835426;
+  --text-color: #000;
+  --container-bg: #fff;
+  --nav-txt-unhover: #404040;
+  --container-text: #000;
+  --secondary-txt: #575757ad;
+}
+/* var(--text-color) */
+/* Body & Background transitions */
+html, body {
+  background-color: var(--body-bg);
+  color: var(--text-color);
+  transition: background-color 0.5s ease, color 0.5s ease;
+  font-family: 'TyAndCosFont', Arial, sans-serif;
+}
+
+/* Nav bar styles */
+nav {
+  background-color: var(--container-bg);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 60px;
+  z-index: 1000;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  justify-content: space-around;
+}
+
+/* Nav links and logo */
+nav ul li a {
+  display: flex;
+  align-items: center;
+  color: var(--nav-txt-unhover);
+  text-decoration: none;
+  padding: 16px;
+  font-weight: 500;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: var(--container-text);
+  transform: scale(1.1);
+}
+
+/* Ensure the logo stays in the nav bar */
+.top-bar {
+  height: 30px;       /* Adjust as needed */
+  width: auto;        /* Keeps original aspect ratio */
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 8px;
+}
+
+/* Show only the light icon by default */
+.top-bar.dark-icon {
+  display: none;
+}
+
+/* In dark mode, hide the light icon and show the dark icon */
+.dark-mode .top-bar.light-icon {
+  display: none;
+}
+
+.dark-mode .top-bar.dark-icon {
+  display: inline;
+}
+
+/* Toggle container in nav */
+.toggle-container {
+  /* Ensure the toggle is aligned with nav items */
+  display: flex;
+  align-items: center;
+}
+
+/* Hide default checkbox */
+#theme-toggle {
+  display: none;
+}
+
+/* Style the toggle label with icons */
+.theme-toggle {
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  position: relative; /* Use relative so it stays in the flow */
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.theme-toggle .icon {
+  width: 24px;
+  height: 24px;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* Default: show sun, hide moon */
+.theme-toggle .moon {
+  opacity: 0;
+}
+
+.theme-toggle .sun {
+  opacity: 1;
+}
+
+/* Background Image */
+.background-image {
+  background-image: url('images/dunes.jpg');
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  filter: blur(10px);
+}
+
+/* The pseudo-element for dark background image */
+.background-image::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('images/dunes-dark.jpg');
+  background-size: cover;
+  background-position: center;
+  filter: blur(10px);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  z-index: 1;
+}
+
+/* Dark mode styles activated by the "dark-mode" class */
+.dark-mode {
+  --body-bg: #222;
+  --text-color: #fff;
+  --container-bg: #444;
+  --container-text: #fff;
+  --nav-txt-unhover: #d3d3d3;
+  --secondary-txt: #dcdcdc97;
+}
+
+.dark-mode html,
+.dark-mode body {
+  background-color: var(--body-bg);
+  color: var(--text-color);
+}
+
+/* When dark mode is active, fade in the dark background image */
+.dark-mode .background-image::after {
+  opacity: 1;
+}
+
+/* Main Content: use flex with a minimum height so it can center a small container */
+.main-content {
+  margin-top: 80px;/* offset for nav (60px) + extra spacing (20px) */
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 0; 
+}
+
+/* Default main-content used by most pages */
+.main-content {
+  min-height: auto;  /* 60px for nav + 20px spacing */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;  /* equal padding on top and bottom */
+  box-sizing: border-box;
+}
+/* Container: size automatically to its content */
+.container {
+    width: 85%;
+    max-width: 800px;
+    padding: 20px 30px;
+    background-color: var(--container-bg);
+    color: var(--container-text);
+    border-radius: 25px;
+    transition: background-color 0.5s ease, color 0.5s ease;
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+/* Icon placeholder now has a fixed max width and maintains a square aspect ratio */
+.icon-placeholder {
+    width: 100%;
+    max-width: 300px;
+    aspect-ratio: 1 / 1;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 0 auto 20px; /* center it and add space below */
+  }
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .container {
+    width: 90%;
+    padding: 20pt;
+  }
+
+  .icon-placeholder {
+    width: 200px;
+    height: 200px;
+  }
+
+  .button {
+    padding: 10pt 20pt;
+    font-size: 16px;
+  }
+
+  h1 {
+    font-size: 2em;
+  }
+
+  h2 {
+    font-size: 1.5em;
+  }
+
+  p {
+    font-size: 1em;
+  }
+
+  h3 {
+    font-size: 2.5em;
+  }
+  h4 {
+    font-size: 4em;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    width: 100%;
+    padding: 10pt;
+  }
+
+  .icon-placeholder {
+    width: 150px;
+    height: 150px;
+  }
+
+  .button {
+    padding: 8pt 16pt;
+    font-size: 14px;
+  }
+
+  h1 {
+    font-size: 1.5em;
+  }
+
+  h2 {
+    font-size: 1.2em;
+  }
+
+  p {
+    font-size: 0.9em;
+  }
+
+  h3 {
+    font-size: 2em;
+  }
+  h4 {
+    font-size: 4em;
+  }
+}
+
+/* Utility Classes */
+.vstack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.hstack {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Updated profile picture sizes */
+.pfp-placeholder {
+  width: 125pt;
+  height: 125pt;
+  border-radius: 50%;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Headings updated to use TyAndCosFont */
+h1 {
+    color: var(--text-color);
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    font-family: 'TyAndCosFont', Arial, sans-serif;
+    font-weight: 700;
+}
+
+h2 {
+    color: var(--text-color);
+    font-size: 2em;
+    margin-bottom: 20px;
+    font-family: 'TyAndCosFont', Arial, sans-serif;
+    font-weight: 500;
+}
+
+p {
+    color: var(--secondary-txt);
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    font-family: 'TyAndCosFont', Arial, sans-serif;
+    font-weight: 400;
+}
+
+h3 {
+    color: var(--text-color);
+    font-size: 3em;
+    margin-bottom: 20px;
+    font-family: 'TyAndCosFont', Arial, sans-serif;
+    font-weight: 900;
+}
+
+h4 {
+    color: var(--text-color);
+    font-size: 4em;
+    margin-bottom: 20px;
+    font-family: 'TyAndCosFont', Arial, sans-serif;
+    font-weight: 1000;
+}
+
+.button {
+    display: inline-block;
+    padding: 15pt 30pt;
+    margin-top: 20px;
+    font-size: 18px;
+    color: #ac9a66;
+    background-color: #c2b2801f;
+    text-decoration: none;
+    border-radius: 25pt;
+    transition: background-color 0.3s ease;
+    font-family: 'TyAndCosFont', 'Arial', sans-serif;
+    font-weight: 500;
+}
+
+.button:hover {
+    background-color: #7d6d3e2f;
+}
+
+.content-wrapper {
+    position: relative;
+    width: 100%;
+    min-height: calc(100vh - 60px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    flex-direction: column;
+    padding-top: 60px; /* Add padding to ensure content is not hidden under the nav bar */
+}
+
+/* Style the toggle label so it works as the clickable area */
+.theme-toggle {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+/* Icon defaults including transform and transition */
+.theme-toggle .icon {
+  width: 24px;
+  height: 24px;
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  display: block;
+}
+
+/* By default, show the sun icon (scaled to full size) and hide the moon icon (scaled down) */
+.theme-toggle .sun {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.theme-toggle .moon {
+  opacity: 0;
+  transform: scale(0.8);
+}
+
+/* When the toggle is checked, switch the icons with animation */
+#theme-toggle:checked + label.theme-toggle .sun {
+  opacity: 0;
+  transform: scale(0.8);
+}
+
+#theme-toggle:checked + label.theme-toggle .moon {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Common styles for fading icons */
+.light-icon,
+.dark-icon {
+  transition: opacity 0.5s ease;
+}
+
+/* NAV BAR ICON STYLES */
+.nav-logo .icon-wrapper {
+  position: relative;
+  display: inline-block;
+  /* Optionally set width/height if needed */
+}
+
+.nav-logo .top-bar-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* Ensure the image scales nicely */
+  height: 30px;
+  width: auto;
+}
+
+/* Show only light icon by default, dark icon hidden */
+.nav-logo .light-icon {
+  opacity: 1;
+}
+.nav-logo .dark-icon {
+  opacity: 0;
+}
+
+/* ICON PLACEHOLDER STYLES */
+.icon-placeholder {
+  position: relative;
+  width: 100%;
+  max-width: 300px;
+  aspect-ratio: 1/1;
+  margin: 0 auto 20px;
+}
+
+/* Center the placeholder icons within the container */
+.icon-placeholder .placeholder-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  transition: opacity 0.5s ease;
+}
+
+/* By default, show the light icon */
+.icon-placeholder .light-icon {
+  opacity: 1;
+}
+
+/* Hide the dark icon by default */
+.icon-placeholder .dark-icon {
+  opacity: 0;
+}
+
+/* In dark mode, crossfade the icons */
+.dark-mode .icon-placeholder .light-icon {
+  opacity: 0;
+}
+
+.dark-mode .icon-placeholder .dark-icon {
+  opacity: 1;
+}
