@@ -11,15 +11,15 @@
 <rect fill="#ffffff" height="360" stroke="none" width="360" x="76" y="76"/>
 <use fill="#000000" fill-rule="evenodd" stroke="none" xlink:href="#Fill"/>
 </mask>
-<use fill="none" mask="url(#StrokeMask)" stroke="#919191" stroke-linecap="butt" stroke-linejoin="round" stroke-width="60" xlink:href="#Fill"/>
+<use fill="none" mask="url(#StrokeMask)" stroke="#353535" stroke-linecap="butt" stroke-linejoin="round" stroke-width="60" xlink:href="#Fill"/>
 </g>
-<path d="M256 18.0878L256 58.6017" fill="none" opacity="1" stroke="#919191" stroke-linecap="round" stroke-linejoin="round" stroke-width="30" vectornator:layerName="Line 3"/>
-<path d="M256 453.398L256 493.912" fill="none" opacity="1" stroke="#919191" stroke-linecap="round" stroke-linejoin="round" stroke-width="30" vectornator:layerName="Line 4"/>
-<path d="M58.8192 256L18.3053 256" fill="none" opacity="1" stroke="#919191" stroke-linecap="round" stroke-linejoin="round" stroke-width="30" vectornator:layerName="Line 5"/>
-<path d="M493.695 256L453.181 256" fill="none" opacity="1" stroke="#919191" stroke-linecap="round" stroke-linejoin="round" stroke-width="30" vectornator:layerName="Line 6"/>
-<path d="M433.872 77.3523L405.224 106" fill="none" opacity="1" stroke="#919191" stroke-linecap="round" stroke-linejoin="round" stroke-width="30" vectornator:layerName="Line 7"/>
-<path d="M105.224 406L76.5767 434.648" fill="none" opacity="1" stroke="#919191" stroke-linecap="round" stroke-linejoin="round" stroke-width="30" vectornator:layerName="Line 8"/>
-<path d="M76.5767 77.3523L105.224 106" fill="none" opacity="1" stroke="#919191" stroke-linecap="round" stroke-linejoin="round" stroke-width="30" vectornator:layerName="Line 9"/>
-<path d="M405.224 406.992L433.872 435.64" fill="none" opacity="1" stroke="#919191" stroke-linecap="round" stroke-linejoin="round" stroke-width="30" vectornator:layerName="Line 10"/>
+<path d="M256 18.0878L256 58.6017" fill="none" opacity="1" stroke="#353535" stroke-linecap="round" stroke-linejoin="round" stroke-width="30" vectornator:layerName="Line 3"/>
+<path d="M256 453.398L256 493.912" fill="none" opacity="1" stroke="#353535" stroke-linecap="round" stroke-linejoin="round" stroke-width="30" vectornator:layerName="Line 4"/>
+<path d="M58.8192 256L18.3053 256" fill="none" opacity="1" stroke="#353535" stroke-linecap="round" stroke-linejoin="round" stroke-width="30" vectornator:layerName="Line 5"/>
+<path d="M493.695 256L453.181 256" fill="none" opacity="1" stroke="#353535" stroke-linecap="round" stroke-linejoin="round" stroke-width="30" vectornator:layerName="Line 6"/>
+<path d="M433.872 77.3523L405.224 106" fill="none" opacity="1" stroke="#353535" stroke-linecap="round" stroke-linejoin="round" stroke-width="30" vectornator:layerName="Line 7"/>
+<path d="M105.224 406L76.5767 434.648" fill="none" opacity="1" stroke="#353535" stroke-linecap="round" stroke-linejoin="round" stroke-width="30" vectornator:layerName="Line 8"/>
+<path d="M76.5767 77.3523L105.224 106" fill="none" opacity="1" stroke="#353535" stroke-linecap="round" stroke-linejoin="round" stroke-width="30" vectornator:layerName="Line 9"/>
+<path d="M405.224 406.992L433.872 435.64" fill="none" opacity="1" stroke="#353535" stroke-linecap="round" stroke-linejoin="round" stroke-width="30" vectornator:layerName="Line 10"/>
 </g>
 </svg>

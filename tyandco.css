@@ -15,12 +15,12 @@
 
 /* Light Mode Variables (Default) */
 :root {
-  --body-bg: #835426;
+  --body-bg: #3D81CA;
   --text-color: #000;
-  --container-bg: #fff;
+  --container-bg: #ffffff50;
   --nav-txt-unhover: #404040;
   --container-text: #000;
-  --secondary-txt: #575757ad;
+  --secondary-txt: #575757;
 }
 /* var(--text-color) */
 /* Body & Background transitions */
@@ -114,7 +114,7 @@ nav ul li a:hover {
 .theme-toggle .icon {
   width: 24px;
   height: 24px;
-  transition: opacity 0.5s ease, transform 0.5s ease;
+  transition: opacity 0.3s ease, transform 0.5s ease;
 }
 
 /* Default: show sun, hide moon */
@@ -128,7 +128,7 @@ nav ul li a:hover {
 
 /* Background Image */
 .background-image {
-  background-image: url('images/dunes.jpg');
+  background-image: url('images/bglight.png');
   background-size: cover;
   background-position: center;
   width: 100%;
@@ -137,7 +137,6 @@ nav ul li a:hover {
   top: 0;
   left: 0;
   z-index: 0;
-  filter: blur(10px);
 }
 
 /* The pseudo-element for dark background image */
@@ -148,10 +147,9 @@ nav ul li a:hover {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('images/dunes-dark.jpg');
+  background-image: url('images/bgdark.png');
   background-size: cover;
   background-position: center;
-  filter: blur(10px);
   opacity: 0;
   transition: opacity 0.5s ease;
   z-index: 1;
@@ -159,9 +157,9 @@ nav ul li a:hover {
 
 /* Dark mode styles activated by the "dark-mode" class */
 .dark-mode {
-  --body-bg: #222;
+  --body-bg: #1359A4;
   --text-color: #fff;
-  --container-bg: #444;
+  --container-bg: #44444450;
   --container-text: #fff;
   --nav-txt-unhover: #d3d3d3;
   --secondary-txt: #dcdcdc97;
@@ -366,14 +364,14 @@ h4 {
     display: inline-block;
     padding: 15pt 30pt;
     margin-top: 20px;
-    font-size: 18px;
+    font-size: 20px;
     color: #ac9a66;
     background-color: #c2b2801f;
     text-decoration: none;
     border-radius: 25pt;
     transition: background-color 0.3s ease;
     font-family: 'TyAndCosFont', 'Arial', sans-serif;
-    font-weight: 500;
+    font-weight: 700;
 }
 
 .button:hover {
@@ -403,7 +401,7 @@ h4 {
 .theme-toggle .icon {
   width: 24px;
   height: 24px;
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  transition: opacity 0.3s ease, transform 0.5s ease;
   display: block;
 }
 
@@ -485,16 +483,3 @@ h4 {
   opacity: 1;
 }
 
-/* Hide the dark icon by default */
-.icon-placeholder .dark-icon {
-  opacity: 0;
-}
-
-/* In dark mode, crossfade the icons */
-.dark-mode .icon-placeholder .light-icon {
-  opacity: 0;
-}
-
-.dark-mode .icon-placeholder .dark-icon {
-  opacity: 1;
-}

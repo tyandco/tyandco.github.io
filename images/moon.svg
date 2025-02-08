@@ -11,7 +11,7 @@
 <rect fill="#ffffff" height="360" stroke="none" width="263" x="173" y="76"/>
 <use fill="#000000" fill-rule="evenodd" stroke="none" xlink:href="#Fill"/>
 </mask>
-<use fill="none" mask="url(#StrokeMask)" stroke="#919191" stroke-linecap="butt" stroke-linejoin="round" stroke-width="60" xlink:href="#Fill"/>
+<use fill="none" mask="url(#StrokeMask)" stroke="#d5d5d5" stroke-linecap="butt" stroke-linejoin="round" stroke-width="60" xlink:href="#Fill"/>
 </g>
 </g>
 </svg>

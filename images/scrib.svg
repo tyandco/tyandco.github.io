@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Created with Vectornator (http://vectornator.io/) -->
+<svg height="512.0px" stroke-miterlimit="10" style="fill-rule:nonzero;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;" version="1.1" viewBox="0 0 512 512" width="512.0px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:vectornator="http://vectornator.io" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs>
+<filter color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse" height="391.109" id="Filter" width="391.109" x="60.4454" y="60.4454">
+<feGaussianBlur in="SourceGraphic" result="Blur" stdDeviation="18.2219"/>
+</filter>
+<filter color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse" height="207.573" id="Filter_2" width="152.74" x="179.63" y="152.214">
+<feGaussianBlur in="SourceGraphic" result="Blur" stdDeviation="5.49801"/>
+</filter>
+</defs>
+<g id="Layer-1" vectornator:layerName="Layer 1">
+<path d="M106 256C106 173.157 173.157 106 256 106C338.843 106 406 173.157 406 256C406 338.843 338.843 406 256 406C173.157 406 106 338.843 106 256Z" fill="#000000" fill-rule="nonzero" filter="url(#Filter)" opacity="1" stroke="none" vectornator:blur="36.4437" vectornator:layerName="Oval 1"/>
+<path d="M174.643 337.357C90.6948 253.409 59.0661 148.93 103.998 103.998C148.93 59.0661 253.409 90.6948 337.357 174.643C421.305 258.591 452.934 363.07 408.002 408.002C363.07 452.934 258.591 421.305 174.643 337.357Z" fill="none" opacity="1" stroke="#000000" stroke-linecap="butt" stroke-linejoin="round" stroke-width="18" vectornator:layerName="Oval 2"/>
+<path d="M174.643 174.643C258.591 90.6948 363.07 59.0661 408.002 103.998C452.934 148.93 421.305 253.409 337.357 337.357C253.409 421.305 148.93 452.934 103.998 408.002C59.0661 363.07 90.6948 258.591 174.643 174.643Z" fill="none" opacity="1" stroke="#000000" stroke-linecap="butt" stroke-linejoin="round" stroke-width="18" vectornator:layerName="Oval 3"/>
+<path d="M256 140.944C374.721 140.944 470.963 192.456 470.963 256C470.963 319.544 374.721 371.056 256 371.056C137.279 371.056 41.0371 319.544 41.0371 256C41.0371 192.456 137.279 140.944 256 140.944Z" fill="none" opacity="1" stroke="#000000" stroke-linecap="butt" stroke-linejoin="round" stroke-width="18" vectornator:layerName="Oval 4"/>
+<path d="M140.944 256C140.944 137.279 192.456 41.0371 256 41.0371C319.544 41.0371 371.056 137.279 371.056 256C371.056 374.721 319.544 470.963 256 470.963C192.456 470.963 140.944 374.721 140.944 256Z" fill="none" opacity="1" stroke="#000000" stroke-linecap="butt" stroke-linejoin="round" stroke-width="18" vectornator:layerName="Oval 5"/>
+<g opacity="1" vectornator:layerName="Group 1">
+<path d="M193.375 256C193.375 206.271 203.332 165.959 215.614 165.959C227.897 165.959 237.854 206.271 237.854 256C237.854 305.729 227.897 346.041 215.614 346.041C203.332 346.041 193.375 305.729 193.375 256Z" fill="#ffffff" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Oval 6"/>
+<path d="M274.146 256C274.146 206.271 284.103 165.959 296.386 165.959C308.668 165.959 318.625 206.271 318.625 256C318.625 305.729 308.668 346.041 296.386 346.041C284.103 346.041 274.146 305.729 274.146 256Z" fill="#ffffff" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Oval 7"/>
+</g>
+<g filter="url(#Filter_2)" opacity="1" vectornator:blur="10.996" vectornator:layerName="Group 2">
+<path d="M193.375 256C193.375 206.271 203.332 165.959 215.614 165.959C227.897 165.959 237.854 206.271 237.854 256C237.854 305.729 227.897 346.041 215.614 346.041C203.332 346.041 193.375 305.729 193.375 256Z" fill="#ffffff" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Oval 6"/>
+<path d="M274.146 256C274.146 206.271 284.103 165.959 296.386 165.959C308.668 165.959 318.625 206.271 318.625 256C318.625 305.729 308.668 346.041 296.386 346.041C284.103 346.041 274.146 305.729 274.146 256Z" fill="#ffffff" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Oval 7"/>
+</g>
+</g>
+</svg>
