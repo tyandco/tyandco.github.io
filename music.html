@@ -11,40 +11,55 @@
 <body>
   <div class="background-image"></div>
   
-  <!-- Navigation -->
-  <nav>
+  <!-- Desktop Navigation (visible on desktop only) -->
+  <nav class="desktop-nav">
+    <div class="desktop-nav-container">
+      <!-- Left: Logo with text -->
+      <div class="nav-left">
+        <a href="index.html" class="logo">
+          <img src="images/scrib.png" alt="TY and Co's Logo" class="top-bar light-icon" />
+          <img src="images/scribdark.png" alt="TY and Co's Logo" class="top-bar dark-icon" />
+          <span class="logo-text">TY and Co.</span>
+        </a>
+      </div>
+      <!-- Center: Navigation Links -->
+      <ul class="desktop-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="socials.html">Socials</a></li>
+        <li><a href="music.html">Music</a></li>
+      </ul>
+      <!-- Right: Dark/Light Toggle -->
+      <div class="nav-right">
+        <input type="checkbox" id="theme-toggle" hidden>
+        <label for="theme-toggle" class="theme-toggle">
+          <img src="images/sun.png" class="icon sun" alt="Light mode">
+          <img src="images/moon.png" class="icon moon" alt="Dark mode">
+        </label>
+      </div>
+    </div>
+  </nav>
+  
+  <!-- Mobile Navigation (visible on mobile only) -->
+  <nav class="mobile-nav">
     <!-- Left: Logo -->
     <div class="nav-left">
       <a href="index.html" class="logo">
         <img src="images/scrib.png" alt="TY and Co's Logo" class="top-bar light-icon" />
         <img src="images/scribdark.png" alt="TY and Co's Logo" class="top-bar dark-icon" />
-        <span class="logo-text">TY and Co.</span>
       </a>
     </div>
-
-    <!-- Desktop Navigation (visible on desktop only) -->
-    <div class="desktop-nav-container">
-      <ul class="desktop-nav">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="socials.html">Socials</a></li>
-        <li><a href="music.html">Music</a></li>
-      </ul>
-    </div>
-
-    <!-- Right: Toggle & Hamburger -->
+    <!-- Right: Dark/Light Toggle and Hamburger Button -->
     <div class="nav-right">
-      <!-- Dark/Light Toggle -->
-      <input type="checkbox" id="theme-toggle" hidden />
-      <label for="theme-toggle" class="theme-toggle">
-        <img src="images/sun.png" class="icon sun" alt="Light mode" />
-        <img src="images/moon.png" class="icon moon" alt="Dark mode" />
+      <input type="checkbox" id="theme-toggle-mobile" hidden>
+      <label for="theme-toggle-mobile" class="theme-toggle">
+        <img src="images/sun.png" class="icon sun" alt="Light mode">
+        <img src="images/moon.png" class="icon moon" alt="Dark mode">
       </label>
-      <!-- Hamburger Button (mobile only) -->
       <button id="nav-toggle" class="hamburger">☰</button>
     </div>
   </nav>
   
-  <!-- Mobile Slide-down Navigation (visible on mobile only) -->
+  <!-- Mobile Slide-Down Navigation (visible on mobile only) -->
   <div id="slide-nav" class="slide-nav">
     <ul>
       <li><a href="index.html">Home</a></li>
