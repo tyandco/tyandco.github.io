@@ -565,3 +565,62 @@ body.dark-mode .theme-toggle .moon {
     transform: scale(1);
 }
 
+/* Add these rules to the end of your tyandco.css */
+
+/* Responsive adjustments for small screens */
+@media (max-width: 480px) {
+  /* Navigation: Stack menu items vertically */
+  nav ul {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  nav ul li {
+    width: 100%;
+    /* Add some padding for easier tapping */
+    padding: 10px 20px;
+  }
+  
+  nav ul li a {
+    font-size: 1.2em;
+  }
+  
+  /* The toggle container can move to the top-right corner */
+  .toggle-container {
+    align-self: flex-end;
+    margin: 10px 20px;
+  }
+  
+  /* Main container adjustments */
+  .container {
+    width: 95%;
+    padding: 15px;
+    margin-bottom: 20px;
+  }
+  
+  /* Adjust headings if needed */
+  h1 {
+    font-size: 1.8em;
+  }
+  h2 {
+    font-size: 1.5em;
+  }
+  h3 {
+    font-size: 2em;
+  }
+  h4 {
+    font-size: 2.5em;
+  }
+  
+  /* Buttons: adjust padding and font size for touch */
+  .button {
+    padding: 10pt 20pt;
+    font-size: 16px;
+  }
+  
+  /* Optionally adjust your background image if needed */
+  .background-image {
+    background-size: cover;
+  }
+}
+
