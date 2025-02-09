@@ -681,6 +681,44 @@ body.dark-mode .theme-toggle .moon {
   #slide-nav {
     display: none;
   }
+  .desktop-nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+  }
+  .desktop-menu {
+    list-style: none;
+    display: flex;
+    gap: 2em;
+    margin: 0;
+    padding: 0;
+  }
+  .desktop-menu li a {
+    text-decoration: none;
+    color: inherit;
+  }
+}
+
+/* Mobile styles (max-width: 480px) */
+@media (max-width: 480px) {
+  .desktop-nav {
+    display: none;
+  }
+  .mobile-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    background: var(--container-bg);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+  }
+  .slide-nav {
+    /* mobile slide-down nav styling */
+  }
 }
 
 /* Mobile styles (max-width: 480px) */

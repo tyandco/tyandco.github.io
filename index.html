@@ -13,9 +13,9 @@
     
     <!-- Desktop Navigation (visible on desktop only) -->
     <nav class="desktop-nav">
-        <div class="desktop-nav-container">
-            <!-- Left: Logo with text -->
-            <div class="nav-left">
+        <div class="desktop-nav-container" style="display:flex; justify-content:space-between; align-items:center; padding:10px 20px; padding-left:0;">
+            <!-- Left: Logo with text (flush left) -->
+            <div class="nav-left" style="margin-left:0;">
                 <a href="index.html" class="logo">
                     <img src="images/scrib.png" alt="TY and Co's Logo" class="top-bar light-icon" />
                     <img src="images/scribdark.png" alt="TY and Co's Logo" class="top-bar dark-icon" />
@@ -23,17 +23,19 @@
                 </a>
             </div>
             <!-- Center: Navigation Links -->
-            <ul class="desktop-menu">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="socials.html">Socials</a></li>
-                <li><a href="music.html">Music</a></li>
-            </ul>
+            <div class="nav-center">
+                <ul class="desktop-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="socials.html">Socials</a></li>
+                    <li><a href="music.html">Music</a></li>
+                </ul>
+            </div>
             <!-- Right: Dark/Light Toggle -->
             <div class="nav-right">
                 <input type="checkbox" id="theme-toggle" hidden>
                 <label for="theme-toggle" class="theme-toggle">
                     <img src="images/sun.png" class="icon sun" alt="Light mode">
-                    <img src="images/scribdark.png" class="icon dark-icon" alt="Dark mode">
+                    <img src="images/moon.png" class="icon dark-icon" alt="Dark mode">
                 </label>
             </div>
         </div>
@@ -41,19 +43,19 @@
     
     <!-- Mobile Navigation (visible on mobile only) -->
     <nav class="mobile-nav">
-        <!-- Left: Logo (no logo text on mobile) -->
+        <!-- Left: Logo (logo text hidden on mobile via CSS) -->
         <div class="nav-left">
             <a href="index.html" class="logo">
                 <img src="images/scrib.png" alt="TY and Co's Logo" class="top-bar light-icon" />
                 <img src="images/scribdark.png" alt="TY and Co's Logo" class="top-bar dark-icon" />
             </a>
         </div>
-        <!-- Right: Dark/Light Toggle and Hamburger Button -->
+        <!-- Right: Mode Toggle and Hamburger Button -->
         <div class="nav-right">
             <input type="checkbox" id="theme-toggle-mobile" hidden>
             <label for="theme-toggle-mobile" class="theme-toggle">
                 <img src="images/sun.png" class="icon sun" alt="Light mode">
-                <img src="images/moon.png" class="icon moon" alt="Dark mode">
+                <img src="images/moon.png" class="icon dark-icon" alt="Dark mode">
             </label>
             <button id="nav-toggle" class="hamburger">☰</button>
         </div>
