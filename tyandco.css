@@ -17,7 +17,7 @@
 :root {
   --body-bg: #3D81CA;
   --text-color: #000;
-  --container-bg: #ffffff50;
+  --container-bg: #a0bfe0;
   --nav-txt-unhover: #404040;
   --container-text: #000;
   --secondary-txt: #575757;
@@ -161,7 +161,7 @@ nav ul li a:hover {
 .dark-mode {
   --body-bg: #1359A4;
   --text-color: #fff;
-  --container-bg: #44444450;
+  --container-bg: #132a42;
   --container-text: #fff;
   --nav-txt-unhover: #d3d3d3;
   --secondary-txt: #dcdcdc97;
