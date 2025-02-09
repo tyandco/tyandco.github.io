@@ -24,6 +24,17 @@
   --button-bg: #9a9a9a6a;
   --button-hover: #79787881;
 }
+
+[data-theme="dark"] {
+  --body-bg: #1359A4;
+  --text-color: #fff;
+  --container-bg: #132a42;
+  --container-text: #fff;
+  --nav-txt-unhover: #d3d3d3;
+  --secondary-txt: #dcdcdc97;
+  --button-bg: #e2e2e24d;
+}
+
 /* var(--text-color) */
 /* Body & Background transitions */
 html, body {
@@ -128,7 +139,7 @@ nav ul li a:hover {
   opacity: 1;
 }
 
-/* Background Image */
+/* Background Image for Light Mode */
 .background-image {
   background-image: url('images/bglight.png');
   background-size: cover;
@@ -141,7 +152,7 @@ nav ul li a:hover {
   z-index: 0;
 }
 
-/* The pseudo-element for dark background image */
+/* Pseudo-element for Dark Mode background overlay */
 .background-image::after {
   content: "";
   position: absolute;
@@ -155,6 +166,11 @@ nav ul li a:hover {
   opacity: 0;
   transition: opacity 0.5s ease;
   z-index: 1;
+}
+
+/* When dark mode is active via data-theme attribute, show the dark background */
+[data-theme="dark"] .background-image::after {
+  opacity: 1;
 }
 
 /* Dark mode styles activated by the "dark-mode" class */
@@ -716,9 +732,6 @@ body.dark-mode .theme-toggle .moon {
     width: 100%;
     z-index: 1000;
   }
-  .slide-nav {
-    /* mobile slide-down nav styling */
-  }
 }
 
 /* Mobile styles (max-width: 480px) */
@@ -948,3 +961,110 @@ a.logo:hover .logo-text {
   }
 }
 
+/* Show light-mode logo by default */
+.logo .light-icon {
+  display: block;
+}
+
+/* Hide dark-mode logo by default */
+.logo .dark-icon {
+  display: none;
+}
+
+/* When dark mode is activated, switch the logo images */
+[data-theme="dark"] .logo .light-icon {
+  display: none;
+}
+
+[data-theme="dark"] .logo .dark-icon {
+  display: block;
+}
+
+/* Ensure the logo is flush left on desktop */
+.desktop-nav-container .nav-left {
+  margin-left: auto;
+  text-align: center;
+  flex: 1;
+}
+
+/* Ensure the logo is flush left on mobile */
+.mobile-nav .nav-left {
+  margin-left: auto;
+  text-align: center;
+  flex: 1;
+}
+
+/* Override previous forced left alignment for logo containers */
+.desktop-nav-container .nav-left,
+.mobile-nav .nav-left {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 0; /* Remove auto margin */
+  flex: none; /* Remove flex: 1 to prevent unwanted spacing */
+}
+
+/* Ensure the logo (icon and text) is inline and centered */
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 12px; /* Adjust the top/bottom and left/right padding as needed */
+}
+
+/* Adjust spacing between the logo icon and text */
+.logo img {
+  margin-right: 8px;
+}
+
+/* (Retain your dark mode logo switching rules) */
+/* Show light-mode logo by default */
+.logo .light-icon {
+  display: block;
+}
+
+/* Hide dark-mode logo by default */
+.logo .dark-icon {
+  display: none;
+}
+
+/* When dark mode is activated, switch the logo images */
+[data-theme="dark"] .logo .light-icon {
+  display: none;
+}
+
+[data-theme="dark"] .logo .dark-icon {
+  display: block;
+}
+
+/* Center the navigation options on desktop */
+.desktop-nav-container .nav-center {
+  flex: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Ensure the slide-down navigation options are centered on mobile */
+.slide-nav ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Absolutely center the desktop navigation options */
+.desktop-nav-container {
+  position: relative;
+}
+
+.desktop-nav-container .nav-center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Hide the toggle completely */
+.theme-toggle,
+#theme-toggle {
+  display: none !important;
+}

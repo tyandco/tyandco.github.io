@@ -1,32 +1,14 @@
-// toggle.js
-
 document.addEventListener('DOMContentLoaded', () => {
-  const themeToggle = document.getElementById('theme-toggle');
-  const themeToggleContainer = document.querySelector('.theme-toggle');
+  const setTheme = (theme) => {
+    document.documentElement.setAttribute('data-theme', theme);
+  };
 
-  // Retrieve saved mode or default to "light"
-  const savedMode = localStorage.getItem('theme') || 'light';
+  // Set initial theme based on system preference
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  setTheme(prefersDark ? 'dark' : 'light');
 
-  if (savedMode === 'dark') {
-    document.body.classList.add('dark-mode');
-    themeToggle.checked = true;
-  } else {
-    document.body.classList.remove('dark-mode');
-    themeToggle.checked = false;
-  }
-
-  themeToggle.addEventListener('change', () => {
-    if (themeToggle.checked) {
-      document.body.classList.add('dark-mode');
-      localStorage.setItem('theme', 'dark');
-    } else {
-      document.body.classList.remove('dark-mode');
-      localStorage.setItem('theme', 'light');
-    }
-
-    // Enable transitions after first toggle
-    if (!themeToggleContainer.classList.contains('animate')) {
-      themeToggleContainer.classList.add('animate');
-    }
+  // Listen for changes in system preferences and update theme accordingly
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+    setTheme(e.matches ? 'dark' : 'light');
   });
 });
