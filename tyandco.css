@@ -1068,3 +1068,27 @@ a.logo:hover .logo-text {
 #theme-toggle {
   display: none !important;
 }
+
+/* Social icons default styles */
+.social-icon {
+    width: 35px;
+    height: 35px;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+/* By default, show the light icon and hide the dark icon */
+.social-icon.light-icon {
+    display: inline-block;
+}
+.social-icon.dark-icon {
+    display: none;
+}
+
+/* When dark mode is active via data-theme attribute, switch the icons */
+[data-theme="dark"] .social-icon.light-icon {
+    display: none;
+}
+[data-theme="dark"] .social-icon.dark-icon {
+    display: inline-block;
+}
