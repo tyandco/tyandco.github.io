@@ -3,92 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home | TY and Co's Hideout</title>
-    <link rel="stylesheet" href="tyandco.css">
-    <link rel="icon" href="./favicon.ico" type="image/x-icon" />
-    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
+    <title>TY and Co. | Home</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="background-image"></div>
     
-    <!-- Desktop Navigation (visible on desktop only) -->
-    <nav class="desktop-nav">
-        <div class="desktop-nav-container" style="display:flex; justify-content:space-between; align-items:center; padding:10px 20px; padding-left:0;">
-            <!-- Left: Logo with text (flush left) -->
-            <div class="nav-left" style="margin-left:0;">
-                <a href="index.html" class="logo">
-                    <img src="images/scrib.png" alt="TY and Co's Logo" class="top-bar light-icon" />
-                    <img src="images/scribdark.png" alt="TY and Co's Logo" class="top-bar dark-icon" />
-                    <span class="logo-text">TY and Co.</span>
-                </a>
-            </div>
-            <!-- Center: Navigation Links -->
-            <div class="nav-center">
-                <ul class="desktop-menu">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="socials.html">Socials</a></li>
-                    <li><a href="music.html">Music</a></li>
-                    <li><a href="updates.html">Updates</a></li>
-                    <li><a href="projects.html">Projects</a></li> <!-- added projects tab -->
-                </ul>
-            </div>
-            <!-- Right: Dark/Light Toggle -->
-            <div class="nav-right">
-                <input type="checkbox" id="theme-toggle" hidden>
-                <label for="theme-toggle" class="theme-toggle">
-                    <img src="images/sun.png" class="icon sun" alt="Light mode">
-                    <img src="images/moon.png" class="icon dark-icon" alt="Dark mode">
-                </label>
-            </div>
-        </div>
-    </nav>
+    <header>
+        <div data-include="navbar.html"></div>
+    </header>
     
-    <!-- Mobile Navigation (visible on mobile only) -->
-    <nav class="mobile-nav">
-        <!-- Left: Logo (logo text hidden on mobile via CSS) -->
-        <div class="nav-left">
-            <a href="index.html" class="logo">
-                <img src="images/scrib.png" alt="TY and Co's Logo" class="top-bar light-icon" />
-                <img src="images/scribdark.png" alt="TY and Co's Logo" class="top-bar dark-icon" />
-            </a>
-        </div>
-        <!-- Right: Mode Toggle and Hamburger Button -->
-        <div class="nav-right">
-            <input type="checkbox" id="theme-toggle-mobile" hidden>
-            <label for="theme-toggle-mobile" class="theme-toggle">
-                <img src="images/sun.png" class="icon sun" alt="Light mode">
-                <img src="images/moon.png" class="icon dark-icon" alt="Dark mode">
-            </label>
-            <button id="nav-toggle" class="hamburger">☰</button>
-        </div>
-    </nav>
-    
-    <!-- Mobile Slide-Down Navigation (visible on mobile only) -->
-    <div id="slide-nav" class="slide-nav">
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="socials.html">Socials</a></li>
-            <li><a href="music.html">Music</a></li>
-            <li><a href="updates.html">Updates</a></li>
-            <li><a href="projects.html">Projects</a></li> <!-- added projects tab -->
-        </ul>
-    </div>
-    
-    <!-- Main Content -->
-    <main class="main-content">
-        <div class="container">
-            <h3>TY and Co's Hideout</h3>
-            <img src="images/hideoutlogo.png" alt="hideoutlogo" class="icon-placeholder"/>
-            <br>
-            <h2>Why does this exist?</h2>
-                <p>This is a personal website for TY and Co. It's mainly for updates, and it also contains music samples from SoundCloud, and social media links.</p>
-            <br>
-            <h3>Word from the dev</h3>
-            <p>Hello everyone, welcome to the website! I know, there's nothing special here, but this is made mostly for updates. If you just came to pass by this website, then hello! You can check the music and socials tabs so you know what I'm like.</p>
-        </div>
+    <main>
+        <section>
+        <h1>TY and Co's Hideout</h1>
+        <img src="images/hideoutlogo.png" alt="Welcome to the hideout!" class="welcome-image">
+        </section>
+        <section>
+            <h2>Welcome to my website!</h2>
+            <p>If you have been here a long time ago, you might have noticed a few changes. And the thing is, yes.. I fully redesigned the website, because the code was messy.</p>
+        </section>
     </main>
-    
-    <script src="nav-toggle.js"></script>
-    <script src="toggle.js"></script>
+    <div data-include="footer.html"></div>
+
 </body>
+<script src="scripts.js"></script>
 </html>

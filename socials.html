@@ -1,104 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Socials | TY and Co's Hideout</title>
-  <link rel="stylesheet" href="tyandco.css" />
-  <link rel="icon" href="./favicon.ico" type="image/x-icon" />
-  <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TY and Co. | Socials</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="background-image"></div>
-  
-  <!-- Desktop Navigation (visible on desktop only) -->
-  <nav class="desktop-nav">
-    <div class="desktop-nav-container" style="display:flex; justify-content:space-between; align-items:center; padding:10px 20px; padding-left:0;">
-      <!-- Left: Logo with text (flush left) -->
-      <div class="nav-left" style="margin-left:0;">
-        <a href="index.html" class="logo">
-          <img src="images/scrib.png" alt="TY and Co's Logo" class="top-bar light-icon" />
-          <img src="images/scribdark.png" alt="TY and Co's Logo" class="top-bar dark-icon" />
-          <span class="logo-text">TY and Co.</span>
-        </a>
-      </div>
-      <!-- Center: Navigation Links -->
-      <div class="nav-center">
-        <ul class="desktop-menu">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="socials.html">Socials</a></li>
-          <li><a href="music.html">Music</a></li>
-          <li><a href="updates.html">Updates</a></li>
-          <li><a href="projects.html">Projects</a></li> <!-- added projects tab -->
-        </ul>
-      </div>
-      <!-- Right: Dark/Light Toggle -->
-      <div class="nav-right">
-        <input type="checkbox" id="theme-toggle" hidden>
-        <label for="theme-toggle" class="theme-toggle">
-          <img src="images/sun.png" class="icon sun" alt="Light mode" />
-          <img src="images/scribdark.png" class="icon dark-icon" alt="Dark mode" />
-        </label>
-      </div>
-    </div>
-  </nav>
-  
-  <!-- Mobile Navigation (visible on mobile only) -->
-  <nav class="mobile-nav">
-    <!-- Left: Logo (logo text hidden on mobile via CSS) -->
-    <div class="nav-left">
-      <a href="index.html" class="logo">
-        <img src="images/scrib.png" alt="TY and Co's Logo" class="top-bar light-icon" />
-        <img src="images/scribdark.png" alt="TY and Co's Logo" class="top-bar dark-icon" />
-      </a>
-    </div>
-    <!-- Right: Mode Toggle and Hamburger Button -->
-    <div class="nav-right">
-      <input type="checkbox" id="theme-toggle-mobile" hidden>
-      <label for="theme-toggle-mobile" class="theme-toggle">
-        <img src="images/sun.png" class="icon sun" alt="Light mode" />
-        <img src="images/scribdark.png" class="icon dark-icon" alt="Dark mode" />
-      </label>
-      <button id="nav-toggle" class="hamburger">☰</button>
-    </div>
-  </nav>
-  
-  <!-- Mobile Slide-Down Navigation -->
-  <div id="slide-nav" class="slide-nav">
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="socials.html">Socials</a></li>
-      <li><a href="music.html">Music</a></li>
-      <li><a href="updates.html">Updates</a></li>
-      <li><a href="projects.html">Projects</a></li> <!-- added projects tab -->
-    </ul>
-  </div>
-  
-  <!-- Main Content -->
-  <main class="main-content">
-    <div class="container">
-      <h1>Socials</h1>
-      <div class="vstack">
-        <a href="https://github.com/tyandco/" class="button" target="_blank">
-          <img src="images/github-light.png" class="social-icon light-icon" alt="Github Logo Light">
-          <img src="images/github-dark.png" class="social-icon dark-icon" alt="Github Logo Dark">
-          Github
-        </a>
-        <a href="https://x.com/tyandco_" class="button" target="_blank">
-          <img src="images/twitter-light.png" class="social-icon light-icon" alt="Twitter Logo Light">
-          <img src="images/twitter-dark.png" class="social-icon dark-icon" alt="Twitter Logo Dark">
-          Twitter / X
-        </a>
-        <a href="https://youtube.com/@ty-and-co" class="button" target="_blank">
-          <img src="images/youtube-light.png" class="social-icon light-icon" alt="YouTube Logo Light">
-          <img src="images/youtube-dark.png" class="social-icon dark-icon" alt="YouTube Logo Dark">
-          YouTube
-        </a>
-      </div>
-    </div>
-  </main>
-  
-  <script src="nav-toggle.js"></script>
-  <script src="toggle.js"></script>
+    <header>
+        <div data-include="navbar.html"></div>
+    </header>
+    <main>
+        <section>
+            <h1>Socials</h1>
+            <p>You can find me on these platforms!</p>
+            <a href="https://twitter.com/tyandco_" class="btn" target="_blank" rel="noopener noreferrer">Twitter</a>
+            <br>
+            <a href="https://www.instagram.com/tyandco_/" class="btn" target="_blank" rel="noopener noreferrer">Instagram</a>
+            <br>
+            <a href="https://www.youtube.com/@ty-and-co" class="btn" target="_blank" rel="noopener noreferrer">YouTube</a>
+        </section>
+    </main>
+    <div data-include="footer.html"></div>
 </body>
+<script src="scripts.js"></script>
 </html>

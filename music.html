@@ -1,107 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Music | TY and Co's Hideout</title>
-  <link rel="stylesheet" href="tyandco.css" />
-  <link rel="icon" href="./favicon.ico" type="image/x-icon" />
-  <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TY and Co. | Music</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="background-image"></div>
-  
-  <!-- Desktop Navigation (visible on desktop only) -->
-  <nav class="desktop-nav">
-    <div class="desktop-nav-container" style="display:flex; justify-content:space-between; align-items:center; padding:10px 20px; padding-left:0;">
-      <!-- Left: Logo with text (flush left) -->
-      <div class="nav-left" style="margin-left:0;">
-        <a href="index.html" class="logo">
-          <img src="images/scrib.png" alt="TY and Co's Logo" class="top-bar light-icon" />
-          <img src="images/scribdark.png" alt="TY and Co's Logo" class="top-bar dark-icon" />
-          <span class="logo-text">TY and Co.</span>
-        </a>
-      </div>
-      <!-- Center: Navigation Links -->
-      <div class="nav-center">
-        <ul class="desktop-menu">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="socials.html">Socials</a></li>
-          <li><a href="music.html">Music</a></li>
-          <li><a href="updates.html">Updates</a></li>
-          <li><a href="projects.html">Projects</a></li> <!-- added projects tab -->
-        </ul>
-      </div>
-      <!-- Right: Dark/Light Toggle -->
-      <div class="nav-right">
-        <input type="checkbox" id="theme-toggle" hidden>
-        <label for="theme-toggle" class="theme-toggle">
-          <img src="images/sun.png" class="icon sun" alt="Light mode" />
-          <img src="images/moon.png" class="icon dark-icon" alt="Dark mode" />
-        </label>
-      </div>
-    </div>
-  </nav>
-  
-  <!-- Mobile Navigation (visible on mobile only) -->
-  <nav class="mobile-nav">
-    <!-- Left: Logo (logo text hidden on mobile via CSS) -->
-    <div class="nav-left">
-      <a href="index.html" class="logo">
-        <img src="images/scrib.png" alt="TY and Co's Logo" class="top-bar light-icon" />
-        <img src="images/scribdark.png" alt="TY and Co's Logo" class="top-bar dark-icon" />
-      </a>
-    </div>
-    <!-- Right: Mode Toggle and Hamburger Button -->
-    <div class="nav-right">
-      <input type="checkbox" id="theme-toggle-mobile" hidden>
-      <label for="theme-toggle-mobile" class="theme-toggle">
-        <img src="images/sun.png" class="icon sun" alt="Light mode" />
-        <img src="images/moon.png" class="icon dark-icon" alt="Dark mode" />
-      </label>
-      <button id="nav-toggle" class="hamburger">☰</button>
-    </div>
-  </nav>
-  
-  <!-- Mobile Slide-Down Navigation -->
-  <div id="slide-nav" class="slide-nav">
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="socials.html">Socials</a></li>
-      <li><a href="music.html">Music</a></li>
-      <li><a href="updates.html">Updates</a></li>
-      <li><a href="projects.html">Projects</a></li> <!-- added projects tab -->
-    </ul>
-  </div>
-  
-  <!-- Main Content -->
-  <main class="main-content">
-    <div class="container">
-      <h1>Music</h1>
-      <h3>Latest Song</h3>
-      <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2082107667&color=%2380848c&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true">
-      </iframe>
-      <div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;">
-        <a href="https://soundcloud.com/ty-and-co" title="TY and Co." target="_blank" style="color: #cccccc; text-decoration: none;"></a>
-        <a href="https://soundcloud.com/ty-and-co/package" title="Package (Scribbles&#x27; Unboxing Song)" target="_blank" style="color: #cccccc; text-decoration: none;"></a>
-      </div>
-      <br>
-      <h2>Other Songs</h2>
-      <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1960218611&color=%23946047&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
-      <div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;">
-        <a href="https://soundcloud.com/ty-and-co" title="TY and Co." target="_blank" style="color: #cccccc; text-decoration: none;"></a>
-        <a href="https://soundcloud.com/ty-and-co/beyondthedunes" title="BeyondtheduNES" target="_blank" style="color: #cccccc; text-decoration: none;"></a>
-      </div>
-      <br>
-      <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1908022043&color=%234c4852&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
-      <div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;">
-        <a href="https://soundcloud.com/ty-and-co" title="TY and Co." target="_blank" style="color: #cccccc; text-decoration: none;"></a>
-        <a href="https://soundcloud.com/ty-and-co/crystcalam" title="Crystal Calamity" target="_blank" style="color: #cccccc; text-decoration: none;"></a>
-      </div>
-    </div>
-  </main>
-  
-  <script src="nav-toggle.js"></script>
-  <script src="toggle.js"></script>
+    <header>
+        <div data-include="navbar.html"></div>
+    </header>
+    <main>
+        <section class="music-embed">
+          <h1>Music</h1>
+          <p>Stream my latest tracks:</p>
+          <div class="sc-embed">
+            <!-- Change the profile URL below to your SoundCloud username if different -->
+            <iframe title="SoundCloud Profile Player" width="100%" height="600" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/ty-and-co&color=%235a88cc&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
+          </div>
+          <p class="sc-credit"><a href="https://soundcloud.com/ty-and-co" class="btn" target="_blank" rel="noopener noreferrer">Follow on SoundCloud</a></p>
+        </section>
+    </main>
+    <div data-include="footer.html"></div>
 </body>
+<script src="scripts.js"></script>
 </html>

@@ -1,97 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en">   
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Updates | TY and Co's Hideout</title>
-    <link rel="stylesheet" href="tyandco.css">
-    <link rel="icon" href="./favicon.ico" type="image/x-icon" />
-    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
+    <title>TY and Co. | Updates</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="background-image"></div>
-    
-    <!-- Desktop Navigation (visible on desktop only) -->
-    <nav class="desktop-nav">
-        <div class="desktop-nav-container" style="display:flex; justify-content:space-between; align-items:center; padding:10px 20px; padding-left:0;">
-            <!-- Left: Logo with text (flush left) -->
-            <div class="nav-left" style="margin-left:0;">
-                <a href="index.html" class="logo">
-                    <img src="images/scrib.png" alt="TY and Co's Logo" class="top-bar light-icon" />
-                    <img src="images/scribdark.png" alt="TY and Co's Logo" class="top-bar dark-icon" />
-                    <span class="logo-text">TY and Co.</span>
-                </a>
-            </div>
-            <!-- Center: Navigation Links -->
-            <div class="nav-center">
-                <ul class="desktop-menu">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="socials.html">Socials</a></li>
-                    <li><a href="music.html">Music</a></li>
-                    <li><a href="updates.html">Updates</a></li>
-                    <li><a href="projects.html">Projects</a></li> <!-- added projects tab -->
-                </ul>
-            </div>
-            <!-- Right: Dark/Light Toggle -->
-            <div class="nav-right">
-                <input type="checkbox" id="theme-toggle" hidden>
-                <label for="theme-toggle" class="theme-toggle">
-                    <img src="images/sun.png" class="icon sun" alt="Light mode">
-                    <img src="images/moon.png" class="icon dark-icon" alt="Dark mode">
-                </label>
-            </div>
-        </div>
-    </nav>
-    
-    <!-- Mobile Navigation (visible on mobile only) -->
-    <nav class="mobile-nav">
-        <!-- Left: Logo (logo text hidden on mobile via CSS) -->
-        <div class="nav-left">
-            <a href="index.html" class="logo">
-                <img src="images/scrib.png" alt="TY and Co's Logo" class="top-bar light-icon" />
-                <img src="images/scribdark.png" alt="TY and Co's Logo" class="top-bar dark-icon" />
-            </a>
-        </div>
-        <!-- Right: Mode Toggle and Hamburger Button -->
-        <div class="nav-right">
-            <input type="checkbox" id="theme-toggle-mobile" hidden>
-            <label for="theme-toggle-mobile" class="theme-toggle">
-                <img src="images/sun.png" class="icon sun" alt="Light mode">
-                <img src="images/moon.png" class="icon dark-icon" alt="Dark mode">
-            </label>
-            <button id="nav-toggle" class="hamburger">☰</button>
-        </div>
-    </nav>
-    
-    <!-- Mobile Slide-Down Navigation (visible on mobile only) -->
-    <div id="slide-nav" class="slide-nav">
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="socials.html">Socials</a></li>
-            <li><a href="music.html">Music</a></li>
-            <li><a href="updates.html">Updates</a></li>
-            <li><a href="projects.html">Projects</a></li> <!-- added projects tab -->
-        </ul>
-    </div>
-    
-    <!-- Main Content -->
-    <main class="main-content">
-        <div class="container">
-            <h3>Updates</h3>
-            <br>
-            <div class="hstack">
-                <h2>16/4/25 | Projects Tab Added!</h2>
-                <p>The Projects tab contains links to stuff I worked on!</p>
-            </div>
-            <br>
-            <div class="hstack">
-                <h2>16/4/25 | Updates Tab Added!</h2>
-                <p>As promised, the updates tab has been added. This will contain updates about the website and about me!</p>
-            </div>
-        </div>
+    <header>
+        <div data-include="navbar.html"></div>
+    </header>
+    <main>
+        <section>
+            <h1>Updates</h1>
+            <p>Stay tuned for the latest news and updates!</p>
+            <h2>18/9/25 | The BIG Update!</h2>
+            <p>The website has been FULLY redesigned from the ground up. New CSS, New Navbar association, Widgets, and now the website is stuck to one theme because why not. Oh, and also there's an About section now! Go check it out!</p>
+            <h2>16/4/25 | Projects Tab Added!</h2>
+            <p>The Projects tab contains links to stuff I worked on!</p>
+            <h2>16/4/25 | Updates Tab Added!</h2>
+            <p>As promised, the updates tab has been added. This will contain updates about the website and about me!</p>
+
+        </section>
     </main>
-    
-    <script src="nav-toggle.js"></script>
-    <script src="toggle.js"></script>
+    <div data-include="footer.html"></div>
 </body>
+<script src="scripts.js"></script>
 </html>
