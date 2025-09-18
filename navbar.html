@@ -1,7 +1,14 @@
-<nav>
-    <img src="images/scrib.png" alt="Logo" class="logo">
-    <a href="index.html" class="homereturner">TY and Co.</a>
-    <ul>
+<nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-brand">
+        <img src="images/scrib.png" alt="TY and Co. logo" class="logo">
+        <a href="index.html" class="homereturner">TY and Co.</a>
+    </div>
+    <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-navigation">
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+    </button>
+    <ul id="primary-navigation" class="nav-menu">
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="socials.html">Socials</a></li>

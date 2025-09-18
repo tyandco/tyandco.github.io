@@ -40,11 +40,61 @@
     }
   }
 
+  function initNavMenus(root = document){
+    root.querySelectorAll('.site-nav').forEach(nav => {
+      if (nav.dataset.navReady === 'true') return;
+      const toggle = nav.querySelector('.nav-toggle');
+      const menu = nav.querySelector('.nav-menu');
+      if (!toggle || !menu) return;
+
+      nav.dataset.navReady = 'true';
+      toggle.setAttribute('aria-expanded', 'false');
+
+      const mobileQuery = window.matchMedia('(max-width: 768px)');
+
+      const syncMenuVisibility = () => {
+        const isMobile = mobileQuery.matches;
+        if (!isMobile) {
+          nav.classList.remove('is-open');
+          toggle.setAttribute('aria-expanded', 'false');
+          menu.hidden = false;
+        } else {
+          menu.hidden = !nav.classList.contains('is-open');
+        }
+      };
+
+      toggle.addEventListener('click', () => {
+        const willOpen = !nav.classList.contains('is-open');
+        nav.classList.toggle('is-open', willOpen);
+        toggle.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+        syncMenuVisibility();
+      });
+
+      menu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          if (!mobileQuery.matches) return;
+          nav.classList.remove('is-open');
+          toggle.setAttribute('aria-expanded', 'false');
+          syncMenuVisibility();
+        });
+      });
+
+      if (typeof mobileQuery.addEventListener === 'function') {
+        mobileQuery.addEventListener('change', syncMenuVisibility);
+      } else if (typeof mobileQuery.addListener === 'function') {
+        mobileQuery.addListener(syncMenuVisibility);
+      }
+
+      syncMenuVisibility();
+    });
+  }
+
   document.addEventListener('DOMContentLoaded', async () => {
     // Initial pass
     await includePartials();
     // Handle one level of nested includes
     await includePartials();
+    initNavMenus();
   });
 
   // Observe future DOM changes and auto-include if new elements are added
@@ -52,7 +102,7 @@
     for (const m of mutations){
       for (const node of m.addedNodes){
         if (node && node.nodeType === 1){
-          includePartials(node);
+          includePartials(node).then(() => initNavMenus(node));
         }
       }
     }
