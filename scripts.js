@@ -63,7 +63,7 @@
     return new Promise((resolve, reject) => {
       const params = new URLSearchParams(baseParams);
       const callbackName = `scEmbedCallback_${Date.now()}_${Math.random().toString(36).slice(2, 9)}`;
-      params.set('format', 'js');
+      params.set('format', 'json');
       params.set('callback', callbackName);
 
       const script = document.createElement('script');
@@ -77,7 +77,13 @@
         }
       };
 
+      const timeoutId = setTimeout(() => {
+        cleanup();
+        reject(new Error('SoundCloud JSONP timed out.'));
+      }, 10000);
+
       window[callbackName] = data => {
+        clearTimeout(timeoutId);
         cleanup();
         if (data && data.html) {
           applySoundCloudHtml(container, data.html, profileUrl);
@@ -88,6 +94,7 @@
       };
 
       script.onerror = () => {
+        clearTimeout(timeoutId);
         cleanup();
         reject(new Error('SoundCloud JSONP failed to load.'));
       };
