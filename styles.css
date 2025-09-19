@@ -444,24 +444,50 @@ header {
   }
 }
 
+.sc-embed {
+  width: 100%;
+  max-width: 780px;
+  margin: 0 auto;
+}
+
 .sc-player {
   width: 100%;
-  max-width: 100%;
   border: 0;
   border-radius: 20px;
-  height: 600px;
+  min-height: 520px;
   display: block;
+}
+
+.sc-loading {
+  margin: 40px 0;
+  font-size: 16pt;
+  color: #050b14;
+}
+
+.sc-error {
+  font-size: 15pt;
+  color: #050b14;
+}
+
+.sc-error a {
+  color: #5a88cc;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.sc-error a:hover {
+  text-decoration: underline;
 }
 
 @media (max-width: 820px) {
   .sc-player {
-    height: 860px;
+    min-height: 760px;
   }
 }
 
 @media (max-width: 520px) {
   .sc-player {
-    height: 1020px;
+    min-height: 920px;
   }
 }
 

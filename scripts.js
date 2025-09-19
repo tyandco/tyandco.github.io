@@ -40,6 +40,119 @@
     }
   }
 
+  function applySoundCloudHtml(container, html, profileUrl){
+    container.innerHTML = html || '';
+    const iframe = container.querySelector('iframe');
+    if (iframe) {
+      iframe.classList.add('sc-player');
+      iframe.setAttribute('loading', 'lazy');
+      iframe.setAttribute('allow', 'autoplay');
+      if (!iframe.hasAttribute('title')) {
+        iframe.setAttribute('title', 'SoundCloud Profile Player');
+      }
+    } else if (!html) {
+      container.innerHTML = `
+        <p class="sc-error">
+          Unable to load the SoundCloud player right now. 
+          <a href="${profileUrl}" target="_blank" rel="noopener noreferrer">Open on SoundCloud</a>.
+        </p>`;
+    }
+  }
+
+  function loadSoundCloudJsonp(container, profileUrl, baseParams){
+    return new Promise((resolve, reject) => {
+      const params = new URLSearchParams(baseParams);
+      const callbackName = `scEmbedCallback_${Date.now()}_${Math.random().toString(36).slice(2, 9)}`;
+      params.set('format', 'js');
+      params.set('callback', callbackName);
+
+      const script = document.createElement('script');
+      script.src = `https://soundcloud.com/oembed?${params.toString()}`;
+      script.async = true;
+
+      const cleanup = () => {
+        delete window[callbackName];
+        if (script.parentNode) {
+          script.parentNode.removeChild(script);
+        }
+      };
+
+      window[callbackName] = data => {
+        cleanup();
+        if (data && data.html) {
+          applySoundCloudHtml(container, data.html, profileUrl);
+          resolve();
+        } else {
+          reject(new Error('SoundCloud JSONP returned no HTML.'));
+        }
+      };
+
+      script.onerror = () => {
+        cleanup();
+        reject(new Error('SoundCloud JSONP failed to load.'));
+      };
+
+      document.head.appendChild(script);
+    });
+  }
+
+  async function buildSoundCloudEmbed(container){
+    const profileUrl = container.getAttribute('data-soundcloud-profile');
+    if (!profileUrl) return;
+
+    const baseParams = new URLSearchParams({
+      url: profileUrl,
+      color: '#5a88cc',
+      auto_play: 'false',
+      hide_related: 'false',
+      show_comments: 'true',
+      show_user: 'true',
+      show_reposts: 'false',
+      show_teaser: 'false',
+      visual: 'false',
+      maxheight: container.dataset.scMaxheight || '920'
+    });
+
+    container.innerHTML = '<p class="sc-loading">Loading tracks…</p>';
+
+    try {
+      const params = new URLSearchParams(baseParams);
+      params.set('format', 'json');
+      const res = await fetch(`https://soundcloud.com/oembed?${params.toString()}`, {
+        credentials: 'omit',
+        mode: 'cors'
+      });
+      if (!res.ok) throw new Error(`SoundCloud responded with ${res.status}`);
+      const data = await res.json();
+      if (data && data.html) {
+        applySoundCloudHtml(container, data.html, profileUrl);
+        return;
+      }
+      throw new Error('SoundCloud response did not include HTML.');
+    } catch (err) {
+      console.error('[SoundCloud Embed][fetch]', err);
+      try {
+        await loadSoundCloudJsonp(container, profileUrl, baseParams);
+        return;
+      } catch (jsonpErr) {
+        console.error('[SoundCloud Embed][jsonp]', jsonpErr);
+        container.innerHTML = `
+          <p class="sc-error">
+            Unable to load the SoundCloud player right now. 
+            <a href="${profileUrl}" target="_blank" rel="noopener noreferrer">Open on SoundCloud</a>.
+          </p>`;
+      }
+    }
+  }
+
+  async function initSoundCloudEmbeds(root = document){
+    const nodes = root.querySelectorAll('[data-soundcloud-profile]:not([data-sc-loaded="true"])');
+    for (const node of nodes){
+      node.setAttribute('data-sc-loaded', 'true');
+      await buildSoundCloudEmbed(node);
+    }
+  }
+
   function initNavMenus(root = document){
     root.querySelectorAll('.site-nav').forEach(nav => {
       if (nav.dataset.navReady === 'true') return;
@@ -94,6 +207,7 @@
     await includePartials();
     // Handle one level of nested includes
     await includePartials();
+    await initSoundCloudEmbeds();
     initNavMenus();
   });
 
@@ -102,7 +216,9 @@
     for (const m of mutations){
       for (const node of m.addedNodes){
         if (node && node.nodeType === 1){
-          includePartials(node).then(() => initNavMenus(node));
+          includePartials(node)
+            .then(() => initSoundCloudEmbeds(node))
+            .then(() => initNavMenus(node));
         }
       }
     }
