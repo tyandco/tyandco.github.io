@@ -444,6 +444,27 @@ header {
   }
 }
 
+.sc-player {
+  width: 100%;
+  max-width: 100%;
+  border: 0;
+  border-radius: 20px;
+  height: 600px;
+  display: block;
+}
+
+@media (max-width: 820px) {
+  .sc-player {
+    height: 860px;
+  }
+}
+
+@media (max-width: 520px) {
+  .sc-player {
+    height: 1020px;
+  }
+}
+
 /* GitHub-specific button style */
 .github-credit { text-align: center; }
 .github-credit .btn { 
