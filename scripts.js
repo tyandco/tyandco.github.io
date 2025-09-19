@@ -45,8 +45,12 @@
     const iframe = container.querySelector('iframe');
     if (iframe) {
       iframe.classList.add('sc-player');
-      iframe.setAttribute('loading', 'lazy');
-      iframe.setAttribute('allow', 'autoplay');
+      if (!iframe.hasAttribute('loading')) {
+        iframe.setAttribute('loading', 'lazy');
+      }
+      if (!iframe.hasAttribute('allow')) {
+        iframe.setAttribute('allow', 'autoplay; clipboard-write; encrypted-media; fullscreen');
+      }
       if (!iframe.hasAttribute('title')) {
         iframe.setAttribute('title', 'SoundCloud Profile Player');
       }
@@ -116,8 +120,7 @@
       show_user: 'true',
       show_reposts: 'false',
       show_teaser: 'true',
-      visual: 'false',
-      maxheight: container.dataset.scMaxheight || '920'
+      visual: 'false'
     });
 
     container.innerHTML = '<p class="sc-loading">Loading tracks… \n(On mobile and/or not loading? Click the button below, it takes you to my profile!)</p>';
