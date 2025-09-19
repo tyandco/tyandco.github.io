@@ -120,7 +120,7 @@
       maxheight: container.dataset.scMaxheight || '920'
     });
 
-    container.innerHTML = '<p class="sc-loading">Loading tracks…</p>';
+    container.innerHTML = '<p class="sc-loading">Loading tracks… \n(On mobile and/or not loading? Click the button below, it takes you to my profile!)</p>';
 
     try {
       const params = new URLSearchParams(baseParams);
