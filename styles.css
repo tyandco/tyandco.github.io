@@ -479,6 +479,14 @@ header {
   text-decoration: underline;
 }
 
+.sc-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 28px;
+}
+
 @media (max-width: 820px) {
   .sc-player {
     min-height: 760px;
