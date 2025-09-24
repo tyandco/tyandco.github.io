@@ -134,7 +134,8 @@ ul{
   justify-content: center;
 }
 .welcome-image {
-    height: 350px;
+    width: min(350px, 100%);
+    height: auto;
     display: block;
     margin: 20px auto;
 }
@@ -389,6 +390,7 @@ header {
     flex: 1 1 100%;
     max-width: 100%;
   }
+  
 
   .site-nav {
     flex-wrap: wrap;
