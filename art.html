@@ -11,8 +11,27 @@
         <div data-include="navbar.html"></div>
     </header>
     <main>
+        <section class="gallery-intro">
+            <h1>Art Gallery</h1>
+            <p>Just showcasing my art :P</p>
+        </section>
         <section>
-            <h1>Coming soon!</h1>
+            <div 
+                class="art-gallery" 
+                data-gallery
+                data-gallery-user="tyandco"
+                data-gallery-repo="art-gallery"
+                data-gallery-branch="main"
+                data-gallery-path="gallery"
+                data-gallery-recursive="true"
+                data-gallery-max="8"
+            >
+                <div class="gallery-status" data-gallery-status aria-live="polite">
+                    Set <code>data-gallery-user</code> and <code>data-gallery-repo</code> to load artwork from GitHub.
+                </div>
+                <div class="gallery-grid" data-gallery-grid hidden></div>
+                <nav class="gallery-pagination" data-gallery-pager hidden aria-label="Art gallery pages"></nav>
+            </div>
         </section>
     </main>
     <div data-include="footer.html"></div>
