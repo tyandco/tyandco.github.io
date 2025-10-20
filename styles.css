@@ -2,8 +2,8 @@
 @font-face {
     font-family: 'TyAndCosFont';
     src: local('TyAndCosFont'),
-         url('fonts/Tyandcosfont-Regular.ttf') format('truetype'),
-         url('fonts/Tyandcosfont-Regular.otf') format('opentype');
+         url('fonts/TyAndCosFont-Regular.ttf') format('truetype'),
+         url('fonts/TyAndCosFont-Regular.otf') format('opentype');
     font-weight: 400;
     font-style: normal;
     font-display: swap;
