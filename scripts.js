@@ -40,6 +40,24 @@
     }
   }
 
+  function initSectionEffects(root = document){
+    const isMobile = typeof window !== 'undefined'
+      && typeof window.matchMedia === 'function'
+      && window.matchMedia('(max-width: 768px)').matches;
+    const maxTilt = isMobile ? 1.75 : 3; // degrees
+    const dropZ = isMobile ? 140 : 220; // px
+    const scope = root.querySelectorAll ? root.querySelectorAll('section') : [];
+    scope.forEach(section => {
+      if (section.dataset.sectionFx === 'true') return;
+      const tilt = (Math.random() * (maxTilt * 2)) - maxTilt;
+      const delay = 0.04 + Math.random() * (isMobile ? 0.25 : 0.4); // slight stagger
+      section.style.setProperty('--section-tilt', `${tilt.toFixed(2)}deg`);
+      section.style.setProperty('--section-drop-z', `${dropZ}px`);
+      section.style.setProperty('--section-drop-delay', `${delay.toFixed(2)}s`);
+      section.dataset.sectionFx = 'true';
+    });
+  }
+
   function applySoundCloudHtml(container, html, profileUrl){
     container.innerHTML = html || '';
     const iframe = container.querySelector('iframe');
@@ -175,40 +193,82 @@
 
       const mobileQuery = window.matchMedia('(max-width: 768px)');
 
-      const syncMenuVisibility = () => {
+      const overlay = (() => {
+        const existing = nav.querySelector('.nav-overlay');
+        if (existing) return existing;
+        const created = document.createElement('div');
+        created.className = 'nav-overlay';
+        created.setAttribute('aria-hidden', 'true');
+        nav.appendChild(created);
+        return created;
+      })();
+
+      const setOpen = (open) => {
         const isMobile = mobileQuery.matches;
-        if (!isMobile) {
+        nav.classList.toggle('is-open', !!open && isMobile);
+        const isOpen = nav.classList.contains('is-open');
+        toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        menu.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
+        overlay.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
+        document.body.classList.toggle('nav-locked', isOpen);
+
+        menu.querySelectorAll('a').forEach(link => {
+          if (isOpen) link.removeAttribute('tabindex');
+          else link.setAttribute('tabindex', '-1');
+        });
+
+        if ('inert' in menu) {
+          if (isOpen) menu.inert = false;
+          else menu.inert = true;
+        } else {
+          if (isOpen) menu.removeAttribute('inert');
+          else menu.setAttribute('inert', '');
+        }
+      };
+
+      const syncMenuState = () => {
+        if (!mobileQuery.matches) {
           nav.classList.remove('is-open');
           toggle.setAttribute('aria-expanded', 'false');
-          menu.hidden = false;
+          menu.removeAttribute('aria-hidden');
+          overlay.setAttribute('aria-hidden', 'true');
+          document.body.classList.remove('nav-locked');
+          menu.querySelectorAll('a').forEach(link => link.removeAttribute('tabindex'));
+          if ('inert' in menu) menu.inert = false;
+          else menu.removeAttribute('inert');
         } else {
-          menu.hidden = !nav.classList.contains('is-open');
+          setOpen(nav.classList.contains('is-open'));
         }
       };
 
       toggle.addEventListener('click', () => {
         const willOpen = !nav.classList.contains('is-open');
-        nav.classList.toggle('is-open', willOpen);
-        toggle.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
-        syncMenuVisibility();
+        setOpen(willOpen);
       });
 
       menu.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', () => {
           if (!mobileQuery.matches) return;
-          nav.classList.remove('is-open');
-          toggle.setAttribute('aria-expanded', 'false');
-          syncMenuVisibility();
+          setOpen(false);
         });
       });
 
+      overlay.addEventListener('click', () => setOpen(false));
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key !== 'Escape') return;
+        if (!mobileQuery.matches) return;
+        if (!nav.classList.contains('is-open')) return;
+        setOpen(false);
+      });
+
       if (typeof mobileQuery.addEventListener === 'function') {
-        mobileQuery.addEventListener('change', syncMenuVisibility);
+        mobileQuery.addEventListener('change', syncMenuState);
       } else if (typeof mobileQuery.addListener === 'function') {
-        mobileQuery.addListener(syncMenuVisibility);
+        mobileQuery.addListener(syncMenuState);
       }
 
-      syncMenuVisibility();
+      syncMenuState();
     });
   }
 
@@ -219,6 +279,7 @@
     await includePartials();
     await initSoundCloudEmbeds();
     initNavMenus();
+    initSectionEffects();
   });
 
   // Observe future DOM changes and auto-include if new elements are added
@@ -228,7 +289,8 @@
         if (node && node.nodeType === 1){
           includePartials(node)
             .then(() => initSoundCloudEmbeds(node))
-            .then(() => initNavMenus(node));
+            .then(() => initNavMenus(node))
+            .then(() => initSectionEffects(node));
         }
       }
     }
