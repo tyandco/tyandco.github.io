@@ -11,11 +11,25 @@
 body{
     font-family: 'TyAndCosFont', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     margin: 0;
-    background-image: linear-gradient(180deg, #436d9c 0%, #eafaff 100%);
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-size: cover;
+    /* Animated halftone texture gliding over the site gradient */
+    background-image:
+        url('images/halftone.svg'),
+        linear-gradient(180deg, #00243c 0%, #c759d6 70%, #b6eeff 100%);
+    background-attachment: fixed, fixed;
+    background-repeat: repeat, no-repeat;
+    background-size: 700px auto, cover;
+    background-position: 0 0, center;
+    animation: halftone-scroll 45s linear infinite;
     align-items: center;
+}
+
+@keyframes halftone-scroll {
+    from {
+        background-position: 0 0, center;
+    }
+    to {
+        background-position: -700px 0, center;
+    }
 }
 .site-nav .logo {
     height: 40px;
@@ -36,7 +50,7 @@ section {
     padding: 20px;
     width: 67%;
     border-radius: 25pt;
-    background-color: #f9fcff76;
+    background-color: #ece1ff76;
 }
 h1{
     color: #050b14;
@@ -78,7 +92,7 @@ section .hero-view {
 }
 footer {
     display: block;
-    background-color: #a0d4e9;
+    background-color: #b6eeff46;
     text-align: center;
     padding: 10px;
     bottom: 0;
@@ -102,7 +116,7 @@ p{
 
 /* Button styling */
 .btn{
-    background-color: #5a88cc;
+    background-color: #a97adf;
     color: white;
     padding: 10px 20px;
     text-decoration: none;
@@ -119,7 +133,7 @@ ul{
 }
 /* Button hover styling */
 .btn:hover{
-    background-color: #3f6297;
+    background-color: #593c6e;
     color: white;
     padding: 10px 20px;
     text-decoration: none;
@@ -143,7 +157,7 @@ ul{
     margin: 20px auto;
 }
 header {
-    background-color: #daf4ff;
+    background-color: #ae9dc3;
     padding: 20px;
     text-align: center;
     margin: 7pt;
@@ -154,7 +168,7 @@ header {
     align-items: center;
     justify-content: space-between;
     gap: 16px;
-    background-color: #daf4ff;
+    background-color: #ae9dc3;
     padding: 10px 20px;
     border-radius: 30pt;
     flex-wrap: nowrap;
@@ -172,7 +186,7 @@ header {
     transition: color 0.3s ease, font-size 0.3s ease;
 }
 .site-nav a:hover{
-    color: #5a88cc;
+    color: #f0e4ff;
 }
 @media (hover: hover) and (pointer: fine) {
   .site-nav a:hover,
