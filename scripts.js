@@ -49,12 +49,34 @@
     const scope = root.querySelectorAll ? root.querySelectorAll('section') : [];
     scope.forEach(section => {
       if (section.dataset.sectionFx === 'true') return;
-      const tilt = (Math.random() * (maxTilt * 2)) - maxTilt;
       const delay = 0.04 + Math.random() * (isMobile ? 0.25 : 0.4); // slight stagger
-      section.style.setProperty('--section-tilt', `${tilt.toFixed(2)}deg`);
       section.style.setProperty('--section-drop-z', `${dropZ}px`);
       section.style.setProperty('--section-drop-delay', `${delay.toFixed(2)}s`);
       section.dataset.sectionFx = 'true';
+    });
+  }
+
+  function initResearchStatus(root = document){
+    const images = root.querySelectorAll('.research-status-image');
+    images.forEach(img => {
+      if (img.dataset.statusSwap === 'true') return;
+      const loggingSrc = img.getAttribute('data-logging-src') || img.getAttribute('src');
+      const waitingSrc = img.getAttribute('data-waiting-src');
+      if (!loggingSrc || !waitingSrc) return;
+
+      img.dataset.statusSwap = 'true';
+
+      const rand = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
+      const showLogging = () => {
+        img.src = loggingSrc;
+        window.setTimeout(showWaiting, rand(4500, 11000));
+      };
+      const showWaiting = () => {
+        img.src = waitingSrc;
+        window.setTimeout(showLogging, rand(500, 1600));
+      };
+
+      showLogging();
     });
   }
 
@@ -280,6 +302,7 @@
     await initSoundCloudEmbeds();
     initNavMenus();
     initSectionEffects();
+    initResearchStatus();
   });
 
   // Observe future DOM changes and auto-include if new elements are added
@@ -290,7 +313,8 @@
           includePartials(node)
             .then(() => initSoundCloudEmbeds(node))
             .then(() => initNavMenus(node))
-            .then(() => initSectionEffects(node));
+            .then(() => initSectionEffects(node))
+            .then(() => initResearchStatus(node));
         }
       }
     }
