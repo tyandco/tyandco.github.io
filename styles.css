@@ -633,11 +633,11 @@ body.nav-locked {
   }
   
   .nav-menu a:hover {
-    background: #;
+    background: #ae9dc3;
   }
 
   .nav-menu a:focus-visible {
-    outline: 3px solid rgba(90, 136, 204, 0.45);
+    outline: 3px solid #ae9dc3;
     outline-offset: 2px;
   }
 
